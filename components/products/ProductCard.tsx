@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Product } from "@/lib/types/product";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="relative flex flex-col gap-4 rounded-[32px] bg-white p-4 shadow-[0_4px_4px_-1px_rgba(12,12,13,0.1),0_4px_4px_-1px_rgba(12,12,13,0.05)] overflow-clip">
+    <Link href={`/products/${product.id}`} className="block">
+    <article className="relative flex flex-col gap-4 rounded-[32px] bg-white p-4 shadow-[0_4px_4px_-1px_rgba(12,12,13,0.1),0_4px_4px_-1px_rgba(12,12,13,0.05)] overflow-clip transition-shadow hover:shadow-[0_8px_16px_-2px_rgba(12,12,13,0.15)]">
       <div className="flex flex-col gap-2">
         <h2 className="font-heading text-[28px] font-bold leading-[42px] text-[#111]">
           {product.name}
@@ -35,5 +37,6 @@ export function ProductCard({ product }: { product: Product }) {
         </svg>
       </div>
     </article>
+    </Link>
   );
 }
